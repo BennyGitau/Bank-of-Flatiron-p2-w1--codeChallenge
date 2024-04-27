@@ -111,6 +111,13 @@
       "amount": "-300",
       "description": "Loan Payment",
       "category": "Expense"
+    },
+    {
+      "id": "be8812d0-04c2-11ef-9a90-37669185b013",
+      "date": "2024-04-11",
+      "amount": "1000000",
+      "description": "Completed code challenge",
+      "category": "Gift"
     }
   ]
 }

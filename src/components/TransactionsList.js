@@ -1,9 +1,7 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({ data }) {
-  //const [amount, category,date, description, id] = data
-  
+function TransactionsList({ data }) {  
   
   return (
     <table className="ui celled striped padded table">
@@ -31,7 +29,6 @@ function TransactionsList({ data }) {
             description={item.description}
           />
         )}
-        {/* render a list of <Transaction> components here */}
       </tbody>
     </table>
   );
