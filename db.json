@@ -83,6 +83,34 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "id": "ebda9260-04b0-11ef-a698-13dfa65f0b19",
+      "date": "2024-04-25",
+      "amount": "400",
+      "description": "Guest Visit",
+      "category": "Expense"
+    },
+    {
+      "id": "b32343d0-04b1-11ef-97f3-d3170d3d1cb5",
+      "date": "2024-04-17",
+      "amount": "-600",
+      "description": "Office Equipments",
+      "category": "Furniture"
+    },
+    {
+      "id": "e9df6930-04b1-11ef-8063-1dd57a9ba78d",
+      "date": "2024-04-01",
+      "amount": "-300",
+      "description": "Meals",
+      "category": "Food"
+    },
+    {
+      "id": "67fd0660-04b2-11ef-9f58-a7caa66537dd",
+      "date": "2024-04-17",
+      "amount": "-300",
+      "description": "Loan Payment",
+      "category": "Expense"
     }
   ]
 }
