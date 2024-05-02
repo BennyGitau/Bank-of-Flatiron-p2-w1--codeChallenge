@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.24.0",
     "framer-motion": "6.2.4",
     "postcss-safe-parser": "^7.0.0",
     "react": "^17.0.1",

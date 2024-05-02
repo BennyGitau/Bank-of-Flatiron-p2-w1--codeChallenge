@@ -1,28 +1,43 @@
 import React,{useState} from "react";
+import axios from "axios"
 import {v1 as uuid} from "uuid";
 
 function AddTransactionForm({handleAddTransaction}) {
-  const [date, setDate] = useState('')
-  const [description, setDescription] = useState('')
-  const [category,setCategory]= useState('')
-  const [amount, setAmount] = useState('')
+  const [formdata, setformData] = useState({
+    date: "",
+    amount: "",
+    description: "",
+    category: ""
+  })
+  
 
+ function handleChange(e){
+   setformData({
+     ...formdata,
+     [e.target.name]: e.target.value
+    });
+    
+  }
   const handleSubmit = (event)=>{
     event.preventDefault()
     const newTransaction = {
+      ...formdata,
       id: uuid(),
-      date: date,
-      amount: amount,
-      description: description,
-      category: category
     }
-    handleAddTransaction(newTransaction)
-    setAmount('');
-    setCategory('');
-    setDate('');
-    setDescription('');
-
+    if(newTransaction !=="") {
+    axios.post('http://localhost:8001/transactions',newTransaction)
+    .then(() => handleAddTransaction(newTransaction))
+    .catch(error=> console.error(error))
   }
+  setformData({
+    date: "",
+    amount: "",
+    description: "",
+    category: ""
+  })
+}
+
+  
   return (
     <div className="ui segment">
       <form className="ui form" onSubmit={handleSubmit}>
@@ -30,27 +45,27 @@ function AddTransactionForm({handleAddTransaction}) {
           <input 
             type="date" 
             name="date" 
-            value={date} 
-            onChange={e=> setDate(e.target.value)}/>
+            value={formdata.date} 
+            onChange={handleChange}/>
           <input 
             type="text" 
             name="description" 
             placeholder="Description" 
-            value={description} 
-            onChange={e=> setDescription(e.target.value)}/>
+            value={formdata.description} 
+            onChange={handleChange}/>
           <input 
             type="text" 
             name="category" 
             placeholder="Category" 
-            value={category}
-            onChange={e=> setCategory(e.target.value)}/>
+            value={formdata.category}
+            onChange={handleChange}/>
           <input 
             type="number" 
             name="amount" 
             placeholder="Amount" 
             step="0.01" 
-            value={amount} 
-            onChange={e=> setAmount(e.target.value)}/>
+            value={formdata.amount} 
+            onChange={handleChange}/>
         </div>
         <button className="ui button" type="submit">
           Add Transaction
