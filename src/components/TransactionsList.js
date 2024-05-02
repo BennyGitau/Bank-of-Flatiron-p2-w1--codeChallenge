@@ -42,8 +42,8 @@ function TransactionsList({ data, searchTerm }) {
     
   return (
     <>
-    <button onClick={onSortByDescription}>Description</button>
-    <button onClick={onSortByCategory}>Catetory</button>
+    <button onClick={onSortByDescription}>Sort By Description</button>
+    <button onClick={onSortByCategory}>Sort By Catetory</button>
     <table className="ui celled striped padded table">
       <tbody>
         <tr>
