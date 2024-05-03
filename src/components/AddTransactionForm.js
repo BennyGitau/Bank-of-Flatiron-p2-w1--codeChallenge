@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 import axios from "axios"
-import {v1 as uuid} from "uuid";
 
 function AddTransactionForm({handleAddTransaction}) {
   const [formdata, setformData] = useState({
@@ -21,11 +20,14 @@ function AddTransactionForm({handleAddTransaction}) {
   const handleSubmit = (event)=>{
     event.preventDefault()
     const newTransaction = {
-      ...formdata,
-      id: uuid(),
+      ...formdata
     }
     if(newTransaction !=="") {
-    axios.post('http://localhost:8001/transactions',newTransaction)
+    axios.post('http://localhost:8001/transactions',{
+      ...newTransaction,
+      amount: parseInt(newTransaction.amount)
+    
+    })
     .then(() => handleAddTransaction(newTransaction))
     .catch(error=> console.error(error))
   }
